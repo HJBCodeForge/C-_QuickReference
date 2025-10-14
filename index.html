@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C# Quick Reference</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;500;700&family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #282c34;
+            font-family: 'Source Sans Pro', sans-serif;
+            color: #abb2bf;
+        }
+        .font-code {
+            font-family: 'Source Code Pro', monospace;
+        }
+        .cheatsheet-container {
+            max-width: 1200px; /* Wider for grid */
+            margin: auto;
+        }
+        .card {
+            background-color: #2c313a;
+            border-radius: 0.5rem;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        .card-header {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: white;
+            background-color: #3e4451;
+            padding: 0.75rem 1rem;
+        }
+        .card-content {
+            padding: 1rem;
+            flex-grow: 1;
+        }
+
+        h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            border-bottom: 2px solid #e5c07b;
+            padding-bottom: 0.75rem;
+            margin-top: 3rem;
+            margin-bottom: 2rem;
+            grid-column: 1 / -1; /* Make header span full width */
+        }
+     
+        pre {
+            background-color: #21252b;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            font-size: 0.9em;
+            margin-bottom: 1rem;
+        }
+        code {
+            font-family: 'Source Code Pro', monospace;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+        }
+        th, td {
+            border: 1px solid #4f5663;
+            padding: 0.75rem;
+            text-align: left;
+        }
+        th {
+            background-color: #3e4451;
+            color: white;
+            font-weight: 600;
+        }
+        .code-block { margin-top: 0.5rem; }
+
+        /* Syntax Highlighting */
+        .syntax-keyword { color: #c678dd; } /* violet */
+        .syntax-class { color: #e5c07b; } /* yellow */
+        .syntax-comment { color: #5c6370; } /* grey */
+        .syntax-string { color: #98c379; } /* green */
+        .syntax-method { color: #61afef; } /* blue */
+        .syntax-number { color: #d19a66; } /* orange */
+        .syntax-operator { color: #56b6c2; } /* cyan */
+        .syntax-variable { color: #e06c75; } /* red */
+    </style>
+</head>
+<body class="p-4 sm:p-8">
+
+    <div class="cheatsheet-container">
+        <header class="bg-[#8c4c8a] p-6 rounded-lg mb-8 text-white">
+            <h1 class="text-4xl font-bold">C# Quick Reference</h1>
+            <p class="mt-2 text-lg">C# quick reference cheat sheet that provides basic syntax and methods.</p>
+        </header>
+
+        <main class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+            
+            <h2 class="col-span-full">Getting Started</h2>
+
+            <div class="card">
+                <div class="card-header">Hello.cs</div>
+                <div class="card-content">
+                    <pre class="code-block"><code class="font-code"><span class="syntax-keyword">class</span> <span class="syntax-class">Hello</span> {
+  <span class="syntax-comment">// main method</span>
+  <span class="syntax-keyword">static</span> <span class="syntax-keyword">void</span> <span class="syntax-method">Main</span>(<span class="syntax-class">string</span>[] args)
+  {
+    <span class="syntax-comment">// Output: Hello, world!</span>
+    <span class="syntax-class">Console</span>.<span class="syntax-method">WriteLine</span>(<span class="syntax-string">"Hello, world!"</span>);
+  }
+}</code></pre>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">CLI Commands</div>
+                <div class="card-content">
+                    <p>Creates a new console application:</p>
+                    <pre class="code-block"><code class="font-code">$ dotnet new console</code></pre>
+                    <p>Lists all application templates:</p>
+                    <pre class="code-block"><code class="font-code">$ dotnet new list</code></pre>
+                    <p>Compiling and running:</p>
+                    <pre class="code-block"><code class="font-code">$ dotnet run
+Hello, world!</code></pre>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">Variables</div>
+                <div class="card-content">
+                    <pre class="code-block"><code class="font-code"><span class="syntax-keyword">int</span> intNum = <span class="syntax-number">9</span>;
+<span class="syntax-keyword">long</span> longNum = <span class="syntax-number">9999999</span>;
+<span class="syntax-keyword">float</span> floatNum = <span class="syntax-number">9.99F</span>;
+<span class="syntax-keyword">double</span> doubleNum = <span class="syntax-number">99.999</span>;
+<span class="syntax-keyword">decimal</span> decimalNum = <span class="syntax-number">99.9999M</span>;
+<span class="syntax-keyword">char</span> letter = <span class="syntax-string">'D'</span>;
+<span class="syntax-keyword">bool</span> @bool = <span class="syntax-keyword">true</span>;
+<span class="syntax-keyword">string</span> site = <span class="syntax-string">"cheatsheets.zip"</span>;
+
+<span class="syntax-keyword">var</span> num = <span class="syntax-number">999</span>;
+<span class="syntax-keyword">var</span> str = <span class="syntax-string">"999"</span>;
+<span class="syntax-keyword">var</span> bo = <span class="syntax-keyword">false</span>;</code></pre>
+                </div>
+            </div>
+
+            <div class="card xl:col-span-2">
+                <div class="card-header">Primitive Data Types</div>
+                <div class="card-content">
+                    <table>
+                        <thead>
+                            <tr><th>Data Type</th><th>Size</th><th>Range</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><code>int</code></td><td>4 bytes</td><td>-2<sup>31</sup> to 2<sup>31</sup>-1</td></tr>
+                            <tr><td><code>long</code></td><td>8 bytes</td><td>-2<sup>63</sup> to 2<sup>63</sup>-1</td></tr>
+                            <tr><td><code>float</code></td><td>4 bytes</td><td>6 to 7 decimal digits</td></tr>
+                            <tr><td><code>double</code></td><td>8 bytes</td><td>15 decimal digits</td></tr>
+                            <tr><td><code>decimal</code></td><td>16 bytes</td><td>28 to 29 decimal digits</td></tr>
+                            <tr><td><code>char</code></td><td>2 bytes</td><td>0 to 65535</td></tr>
+                            <tr><td><code>bool</code></td><td>1 bit</td><td>true / false</td></tr>
+                            <tr><td><code>string</code></td><td>2 bytes per char</td><td><em>N/A</em></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">Comments</div>
+                <div class="card-content">
+                    <pre class="code-block"><code class="font-code"><span class="syntax-comment">// Single-line comment</span>
+
+<span class="syntax-comment">/* Multi-line
+   comment */</span>
+
+<span class="syntax-comment">// TODO: Adds task list item</span>
+
+<span class="syntax-comment">/// XML doc comment</span>
+
+<span class="syntax-comment">/** Multi-line doc
+    comment **/</span></code></pre>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-header">User Input</div>
+                <div class="card-content">
+                    <pre class="code-block"><code class="font-code"><span class="syntax-class">Console</span>.<span class="syntax-method">WriteLine</span>(<span class="syntax-string">"Enter number:"</span>);
+<span class="syntax-keyword">if</span>(<span class="syntax-keyword">int</span>.<span class="syntax-method">TryParse</span>(<span class="syntax-class">Console</span>.<span class="syntax-method">ReadLine</span>(), <span class="syntax-keyword">out</span> <span class="syntax-keyword">int</span> input))
+{
+  <span class="syntax-comment">// Input validated</span>
+  <span class="syntax-class">Console</span>.<span class="syntax-method">WriteLine</span>($<span class="syntax-string">"You entered {input}"</span>);
+}</code></pre>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-header">Conditionals</div>
+                <div class="card-content">
+                    <pre class="code-block"><code class="font-code"><span class="syntax-keyword">int</span> j = <span class="syntax-number">10</span>;
+
+<span class="syntax-keyword">if</span> (j == <span class="syntax-number">10</span>) {
+  <span class="syntax-class">Console</span>.<span class="syntax-method">WriteLine</span>(<span class="syntax-string">"I get printed"</span>);
+} <span class="syntax-keyword">else if</span> (j > <span class="syntax-number">10</span>) {
+  <span class="syntax-class">Console</span>.<span class="syntax-method">WriteLine</span>(<span class="syntax-string">"I don't"</span>);
+} <span class="syntax-keyword">else</span> {
+  <span class="syntax-class">Console</span>.<span class="syntax-method">WriteLine</span>(<span class="syntax-string">"I also don't"</span>);
+}</code></pre>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">Arrays</div>
+                <div class="card-content">
+                    <pre class="code-block"><code class="font-code"><span class="syntax-keyword">char</span>[] chars = <span class="syntax-keyword">new</span> <span class="syntax-keyword">char</span>[<span class="syntax-number">10</span>];
+chars[<span class="syntax-number">0</span>] = <span class="syntax-string">'a'</span>;
+chars[<span class="syntax-number">1</span>] = <span class="syntax-string">'b'</span>;
+
+<span class="syntax-keyword">string</span>[] letters = {<span class="syntax-string">"A"</span>, <span class="syntax-string">"B"</span>, <span class="syntax-string">"C"</span>};
+<span class="syntax-keyword">int</span>[] mylist = {<span class="syntax-number">100</span>, <span class="syntax-number">200</span>};
+<span class="syntax-keyword">bool</span>[] answers = {<span class="syntax-keyword">true</span>, <span class="syntax-keyword">false</span>};</code></pre>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">Loops</div>
+                <div class="card-content">
+                    <pre class="code-block"><code class="font-code"><span class="syntax-keyword">int</span>[] numbers = {<span class="syntax-number">1</span>, <span class="syntax-number">2</span>, <span class="syntax-number">3</span>, <span class="syntax-number">4</span>, <span class="syntax-number">5</span>};
+
+<span class="syntax-keyword">for</span>(<span class="syntax-keyword">int</span> i = <span class="syntax-number">0</span>; i < numbers.<span class="syntax-variable">Length</span>; i++) {
+  <span class="syntax-class">Console</span>.<span class="syntax-method">WriteLine</span>(numbers[i]);
+}
+
+<span class="syntax-keyword">foreach</span>(<span class="syntax-keyword">int</span> num <span class="syntax-keyword">in</span> numbers) {
+  <span class="syntax-class">Console</span>.<span class="syntax-method">WriteLine</span>(num);
+}</code></pre>
+                </div>
+            </div>
+            
+            <h2 class="col-span-full">C# Strings</h2>
+            
+            <div class="card">
+                <div class="card-header">String Concatenation</div>
+                <div class="card-content">
+                    <pre class="code-block"><code class="font-code"><span class="syntax-keyword">string</span> first = <span class="syntax-string">"John"</span>;
+<span class="syntax-keyword">string</span> last = <span class="syntax-string">"Doe"</span>;
+
+<span class="syntax-keyword">string</span> name = first + <span class="syntax-string">" "</span> + last;
+<span class="syntax-class">Console</span>.<span class="syntax-method">WriteLine</span>(name); <span class="syntax-comment">// => John Doe</span></code></pre>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">String Interpolation</div>
+                <div class="card-content">
+                    <pre class="code-block"><code class="font-code"><span class="syntax-keyword">string</span> first = <span class="syntax-string">"John"</span>;
+<span class="syntax-keyword">string</span> last = <span class="syntax-string">"Doe"</span>;
+
+<span class="syntax-keyword">string</span> name = $<span class="syntax-string">"{first} {last}"</span>;
+<span class="syntax-class">Console</span>.<span class="syntax-method">WriteLine</span>(name); <span class="syntax-comment">// => John Doe</span></code></pre>
+                </div>
+            </div>
+                
+            <div class="card">
+                <div class="card-header">Verbatim Strings</div>
+                <div class="card-content">
+                    <pre class="code-block"><code class="font-code"><span class="syntax-keyword">string</span> longString = <span class="syntax-string">@"I can type any 
+characters in here !#@$%^&amp;*()__+ '' \n \t 
+and it will be taken literally."</span>;</code></pre>
+                </div>
+            </div>
+
+             <div class="card">
+                <div class="card-header">Member Example</div>
+                <div class="card-content">
+                    <pre class="code-block"><code class="font-code"><span class="syntax-comment">// Using property of System.String</span>
+<span class="syntax-keyword">string</span> lengthOfString = <span class="syntax-string">"How long?"</span>;
+lengthOfString.<span class="syntax-variable">Length</span>              <span class="syntax-comment">// => 9</span>
+
+<span class="syntax-comment">// Using methods of System.String</span>
+lengthOfString.<span class="syntax-method">Contains</span>(<span class="syntax-string">"How"</span>); <span class="syntax-comment">// => true</span></code></pre>
+                </div>
+            </div>
+
+            <div class="card md:col-span-2 xl:col-span-3">
+                <div class="card-header">String Members</div>
+                <div class="card-content">
+                    <table>
+                        <thead>
+                            <tr><th>Member</th><th>Description</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Length</td><td>A property that returns the length of the string.</td></tr>
+                            <tr><td>Compare()</td><td>A static method that compares two strings.</td></tr>
+                            <tr><td>Contains()</td><td>Determines if the string contains a specific substring.</td></tr>
+                            <tr><td>Equals()</td><td>Determines if the two strings have the same character data.</td></tr>
+                            <tr><td>Format()</td><td>Formats a string via the {0} notation and by using other primitives.</td></tr>
+                            <tr><td>Trim()</td><td>Removes leading and trailing spaces.</td></tr>
+                            <tr><td>Split()</td><td>Creates an array of substrings from a string based on a separator.</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <h2 class="col-span-full">Misc</h2>
+
+            <div class="card md:col-span-2 xl:col-span-3">
+                <div class="card-header">General .NET Terms</div>
+                <div class="card-content">
+                     <table>
+                        <thead>
+                            <tr><th>Term</th><th>Definition</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Runtime</td><td>A collection of services that are required to execute a given compiled unit of code.</td></tr>
+                            <tr><td>Common Language Runtime (CLR)</td><td>Manages .NET objects, memory, threads, and security.</td></tr>
+                            <tr><td>Managed code</td><td>Code that runs on the .NET runtime (e.g., C#, F#, VB).</td></tr>
+                            <tr><td>Unmanaged code</td><td>Code compiled to machine code, not hosted by .NET runtime (e.g., C, C++).</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+</body>
+</html>
