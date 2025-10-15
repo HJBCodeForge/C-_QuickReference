@@ -309,6 +309,93 @@ lengthOfString.<span class="syntax-method">Contains</span>(<span class="syntax-s
                 </div>
             </div>
 
+            <div class="card md:col-span-2 xl:col-span-3">
+                <div class="card-header">Character Escape Sequences</div>
+                <div class="card-content">
+                    <table>
+                        <thead>
+                            <tr><th>Escape</th><th>Meaning</th><th>Notes / Example</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code class="font-code">\"</code></td>
+                                <td>Double quote</td>
+                                <td><code class="font-code">var s = \"She said \"Hello\"\";</code></td>
+                            </tr>
+                            <tr>
+                                <td><code class="font-code">\\</code></td>
+                                <td>Backslash</td>
+                                <td><code class="font-code">var path = \"C:\\\\Program Files\\\\App\";</code></td>
+                            </tr>
+                            <tr>
+                                <td><code class="font-code">\n</code></td>
+                                <td>Newline (LF)</td>
+                                <td><code class="font-code">\"Line1\\nLine2\"</code></td>
+                            </tr>
+                            <tr>
+                                <td><code class="font-code">\r</code></td>
+                                <td>Carriage return (CR)</td>
+                                <td>Often used with <code class="font-code">\n</code> as <code class="font-code">\r\n</code> on Windows</td>
+                            </tr>
+                            <tr>
+                                <td><code class="font-code">\t</code></td>
+                                <td>Horizontal tab</td>
+                                <td><code class="font-code">\"A\\tB\"</code> → A    B</td>
+                            </tr>
+                            <tr>
+                                <td><code class="font-code">\'</code></td>
+                                <td>Single quote</td>
+                                <td>Common in char literals: <code class="font-code">'\''</code></td>
+                            </tr>
+                            <tr>
+                                <td><code class="font-code">\0</code></td>
+                                <td>Null character</td>
+                                <td>Rarely used in managed strings</td>
+                            </tr>
+                            <tr>
+                                <td><code class="font-code">\a</code></td>
+                                <td>Alert (bell)</td>
+                                <td>May have no audible effect on modern systems</td>
+                            </tr>
+                            <tr>
+                                <td><code class="font-code">\b</code></td>
+                                <td>Backspace</td>
+                                <td>Moves cursor back one position</td>
+                            </tr>
+                            <tr>
+                                <td><code class="font-code">\f</code></td>
+                                <td>Form feed</td>
+                                <td>Legacy printer control</td>
+                            </tr>
+                            <tr>
+                                <td><code class="font-code">\v</code></td>
+                                <td>Vertical tab</td>
+                                <td>Rarely used</td>
+                            </tr>
+                            <tr>
+                                <td><code class="font-code">\uXXXX</code></td>
+                                <td>Unicode (16-bit hex)</td>
+                                <td><code class="font-code">\"\u03A9\"</code> → Ω</td>
+                            </tr>
+                            <tr>
+                                <td><code class="font-code">\UXXXXXXXX</code></td>
+                                <td>Unicode (32-bit hex)</td>
+                                <td>For code points beyond BMP</td>
+                            </tr>
+                            <tr>
+                                <td><code class="font-code">\xH[H][H][H]</code></td>
+                                <td>Hex escape (variable length)</td>
+                                <td>Stops at non-hex unless 4 digits supplied</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p class="mt-3 text-sm">
+                        Tip: In verbatim strings <code class="font-code">@&quot;...&quot;</code>, backslashes are literal and newlines are preserved.
+                        To include a double quote, use two of them: <code class="font-code">@&quot;He said &quot;&quot;Hi&quot;&quot;&quot;</code>.
+                    </p>
+                </div>
+            </div>
+
             <h2 class="col-span-full">Misc</h2>
 
             <div class="card md:col-span-2 xl:col-span-3">
