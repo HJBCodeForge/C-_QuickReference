@@ -234,13 +234,60 @@ chars[<span class="syntax-number">1</span>] = <span class="syntax-string">'b'</s
                 <div class="card-content">
                     <pre class="code-block"><code class="font-code"><span class="syntax-keyword">int</span>[] numbers = {<span class="syntax-number">1</span>, <span class="syntax-number">2</span>, <span class="syntax-number">3</span>, <span class="syntax-number">4</span>, <span class="syntax-number">5</span>};
 
+<span class="syntax-comment">// For loop</span>
 <span class="syntax-keyword">for</span>(<span class="syntax-keyword">int</span> i = <span class="syntax-number">0</span>; i < numbers.<span class="syntax-variable">Length</span>; i++) {
   <span class="syntax-class">Console</span>.<span class="syntax-method">WriteLine</span>(numbers[i]);
 }
 
+<span class="syntax-comment">// Foreach loop</span>
 <span class="syntax-keyword">foreach</span>(<span class="syntax-keyword">int</span> num <span class="syntax-keyword">in</span> numbers) {
   <span class="syntax-class">Console</span>.<span class="syntax-method">WriteLine</span>(num);
-}</code></pre>
+}
+
+<span class="syntax-comment">// While loop</span>
+<span class="syntax-keyword">int</span> count = <span class="syntax-number">0</span>;
+<span class="syntax-keyword">while</span>(count < <span class="syntax-number">5</span>) {
+  <span class="syntax-class">Console</span>.<span class="syntax-method">WriteLine</span>(count);
+  count++;
+}
+
+<span class="syntax-comment">// Do-while loop</span>
+<span class="syntax-keyword">int</span> x = <span class="syntax-number">0</span>;
+<span class="syntax-keyword">do</span> {
+  <span class="syntax-class">Console</span>.<span class="syntax-method">WriteLine</span>(x);
+  x++;
+} <span class="syntax-keyword">while</span>(x < <span class="syntax-number">3</span>);</code></pre>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">Switch Statement</div>
+                <div class="card-content">
+                    <pre class="code-block"><code class="font-code"><span class="syntax-keyword">int</span> day = <span class="syntax-number">3</span>;
+<span class="syntax-keyword">string</span> dayName;
+
+<span class="syntax-keyword">switch</span>(day) {
+  <span class="syntax-keyword">case</span> <span class="syntax-number">1</span>:
+    dayName = <span class="syntax-string">"Monday"</span>;
+    <span class="syntax-keyword">break</span>;
+  <span class="syntax-keyword">case</span> <span class="syntax-number">2</span>:
+    dayName = <span class="syntax-string">"Tuesday"</span>;
+    <span class="syntax-keyword">break</span>;
+  <span class="syntax-keyword">case</span> <span class="syntax-number">3</span>:
+    dayName = <span class="syntax-string">"Wednesday"</span>;
+    <span class="syntax-keyword">break</span>;
+  <span class="syntax-keyword">default</span>:
+    dayName = <span class="syntax-string">"Unknown"</span>;
+    <span class="syntax-keyword">break</span>;
+}
+
+<span class="syntax-comment">// Switch expression (C# 8.0+)</span>
+<span class="syntax-keyword">string</span> result = day <span class="syntax-keyword">switch</span> {
+  <span class="syntax-number">1</span> => <span class="syntax-string">"Monday"</span>,
+  <span class="syntax-number">2</span> => <span class="syntax-string">"Tuesday"</span>,
+  <span class="syntax-number">3</span> => <span class="syntax-string">"Wednesday"</span>,
+  _ => <span class="syntax-string">"Unknown"</span>
+};</code></pre>
                 </div>
             </div>
             
