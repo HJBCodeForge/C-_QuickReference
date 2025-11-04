@@ -173,6 +173,39 @@ Hello, world!</code></pre>
             </div>
 
             <div class="card">
+                <div class="card-header">Type Conversion</div>
+                <div class="card-content">
+                    <ul class="list-disc ml-6 mb-2">
+                        <li><b>Implicit cast</b> (widening): <code class="font-code">int i = 10; double d = i;</code></li>
+                        <li><b>Explicit cast</b> (narrowing): <code class="font-code">double d = 9.8; int i = (int)d;</code></li>
+                        <li><b>Convert class</b>: <code class="font-code">int i = Convert.ToInt32(&quot;123&quot;);</code></li>
+                        <li><b>Parse method</b>: <code class="font-code">int i = int.Parse(&quot;123&quot;);</code></li>
+                        <li><b>TryParse method</b>: <code class="font-code">bool ok = int.TryParse(&quot;123&quot;, out int i);</code></li>
+                        <li><b>ToString method</b>: <code class="font-code">string s = i.ToString();</code></li>
+                    </ul>
+                    <pre class="code-block"><code class="font-code"><span class="syntax-comment">// Implicit cast</span>
+    <span class="syntax-keyword">int</span> i = <span class="syntax-number">10</span>;
+    <span class="syntax-keyword">double</span> d = i; <span class="syntax-comment">// 10.0</span>
+
+    <span class="syntax-comment">// Explicit cast</span>
+    <span class="syntax-keyword">double</span> d2 = <span class="syntax-number">9.8</span>;
+    <span class="syntax-keyword">int</span> i2 = (<span class="syntax-keyword">int</span>)d2; <span class="syntax-comment">// 9</span>
+
+    <span class="syntax-comment">// Convert class</span>
+    <span class="syntax-keyword">int</span> n = <span class="syntax-class">Convert</span>.<span class="syntax-method">ToInt32</span>(<span class="syntax-string">&quot;123&quot;</span>);
+
+    <span class="syntax-comment">// Parse/TryParse</span>
+    <span class="syntax-keyword">int</span> p = <span class="syntax-class">int</span>.<span class="syntax-method">Parse</span>(<span class="syntax-string">&quot;456&quot;</span>);
+    <span class="syntax-keyword">bool</span> ok = <span class="syntax-class">int</span>.<span class="syntax-method">TryParse</span>(<span class="syntax-string">&quot;789&quot;</span>, <span class="syntax-keyword">out</span> <span class="syntax-keyword">int</span> val);
+
+    <span class="syntax-comment">// ToString</span>
+    <span class="syntax-keyword">string</span> s = n.<span class="syntax-method">ToString</span>();
+    </code></pre>
+                    <p class="text-xs mt-2">Tip: Use <code class="font-code">TryParse</code> for safe conversions from strings to numbers.</p>
+                </div>
+            </div>
+
+            <div class="card">
                 <div class="card-header">Comments</div>
                 <div class="card-content">
                     <pre class="code-block"><code class="font-code"><span class="syntax-comment">// Single-line comment</span>
