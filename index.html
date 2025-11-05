@@ -432,6 +432,90 @@ chars[<span class="syntax-number">1</span>] = <span class="syntax-string">'b'</s
             </div>
 
             <div class="card">
+                <div class="card-header">Composite Formatting</div>
+                <div class="card-content">
+                    <pre class="code-block"><code class="font-code"><span class="syntax-comment">// Placeholder-based formatting</span>
+<span class="syntax-keyword">int</span> qty = <span class="syntax-number">3</span>;
+<span class="syntax-keyword">decimal</span> price = <span class="syntax-number">19.99M</span>;
+<span class="syntax-class">string</span> msg = <span class="syntax-class">string</span>.<span class="syntax-method">Format</span>(<span class="syntax-string">"You bought {0} item(s) at {1:C}. Total = {2:C}"</span>, qty, price, qty * price);
+<span class="syntax-class">Console</span>.<span class="syntax-method">WriteLine</span>(msg);
+
+<span class="syntax-comment">// Alignment: {index,alignment}</span>
+<span class="syntax-class">Console</span>.<span class="syntax-method">WriteLine</span>(<span class="syntax-string">"{0,-10} | {1,10}"</span>, <span class="syntax-string">"Left"</span>, <span class="syntax-string">"Right"</span>);</code></pre>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">Interpolation with Format Specifiers</div>
+                <div class="card-content">
+                    <pre class="code-block"><code class="font-code"><span class="syntax-keyword">decimal</span> amount = <span class="syntax-number">1234.5M</span>;
+<span class="syntax-keyword">double</span> ratio = <span class="syntax-number">0.2567</span>;
+<span class="syntax-keyword">DateTime</span> today = <span class="syntax-class">DateTime</span>.<span class="syntax-method">Now</span>;
+
+<span class="syntax-comment">// Standard numeric/date format strings with interpolation: {expr:format}</span>
+<span class="syntax-class">Console</span>.<span class="syntax-method">WriteLine</span>($<span class="syntax-string">"Amount: {amount:C} | Number: {amount:N2} | Percent: {ratio:P1} | Date: {today:yyyy-MM-dd}"</span>);
+
+<span class="syntax-comment">// Alignment with interpolation: {expr,align:format}</span>
+<span class="syntax-class">Console</span>.<span class="syntax-method">WriteLine</span>($<span class="syntax-string">"{'Item',-10} {'Qty',5} {'Price',10}"</span>);
+<span class="syntax-class">Console</span>.<span class="syntax-method">WriteLine</span>($<span class="syntax-string">"{'Widget',-10} {3,5} {19.99,10:C}"</span>);</code></pre>
+                </div>
+            </div>
+
+            <div class="card md:col-span-2 xl:col-span-3">
+                <div class="card-header">Numeric Formatting (Currency, Number, Percent)</div>
+                <div class="card-content">
+                    <table>
+                        <thead>
+                            <tr><th>Spec</th><th>Meaning</th><th>Example</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code class="font-code">C</code></td>
+                                <td>Currency</td>
+                                <td><code class="font-code">$"{1234.5M:C}"</code> → e.g., $1,234.50</td>
+                            </tr>
+                            <tr>
+                                <td><code class="font-code">N</code></td>
+                                <td>Number with separators</td>
+                                <td><code class="font-code">$"{1234.5:N2}"</code> → 1,234.50</td>
+                            </tr>
+                            <tr>
+                                <td><code class="font-code">P</code></td>
+                                <td>Percent</td>
+                                <td><code class="font-code">$"{0.256:P1}"</code> → 25.6%</td>
+                            </tr>
+                            <tr>
+                                <td><code class="font-code">0, #</code></td>
+                                <td>Custom numeric</td>
+                                <td><code class="font-code">$"{1234.5:00000.00}"</code> → 01234.50</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p class="text-xs">Note: Output varies by culture. Use <code class="font-code">CultureInfo</code> to control symbols.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">Combining Formatting Approaches</div>
+                <div class="card-content">
+                    <pre class="code-block"><code class="font-code"><span class="syntax-keyword">using</span> <span class="syntax-class">System.Globalization</span>;
+
+<span class="syntax-keyword">decimal</span> amount = <span class="syntax-number">1234.56M</span>;
+<span class="syntax-class">CultureInfo</span> de = <span class="syntax-keyword">new</span> <span class="syntax-class">CultureInfo</span>(<span class="syntax-string">"de-DE"</span>);
+
+<span class="syntax-comment">// Composite with IFormatProvider (culture)</span>
+<span class="syntax-class">string</span> m1 = <span class="syntax-class">string</span>.<span class="syntax-method">Format</span>(de, <span class="syntax-string">"Preis: {0:C}"</span>, amount);
+
+<span class="syntax-comment">// Interpolation + culture: use FormattableString</span>
+<span class="syntax-class">FormattableString</span> fs = $<span class="syntax-string">"Price: {amount:C}"</span>;
+<span class="syntax-class">string</span> m2 = fs.<span class="syntax-method">ToString</span>(de);
+
+<span class="syntax-class">Console</span>.<span class="syntax-method">WriteLine</span>(m1);
+<span class="syntax-class">Console</span>.<span class="syntax-method">WriteLine</span>(m2);</code></pre>
+                </div>
+            </div>
+
+            <div class="card">
                 <div class="card-header">Verbatim Strings</div>
                 <div class="card-content">
                     <pre class="code-block"><code class="font-code"><span class="syntax-keyword">string</span> longString = <span class="syntax-string">@"I can type any 
