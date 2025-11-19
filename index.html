@@ -675,7 +675,7 @@ lengthOfString.<span class="syntax-method">Contains</span>(<span class="syntax-s
                 </div>
             </div>
 
-            <h2 class="col-span-full">Misc</h2>
+            <h2 class="col-span-full">#Misc</h2>
 
             <div class="card md:col-span-2 xl:col-span-3">
                 <div class="card-header">General .NET Terms</div>
@@ -710,6 +710,90 @@ lengthOfString.<span class="syntax-method">Contains</span>(<span class="syntax-s
                 </div>
             </div>
 
+<h2 class="col-span-full">#Exceptions</h2>
+
+            <div class="card md:col-span-2 xl:col-span-3">
+                <div class="card-header">Creating and Throwing Exceptions</div>
+                <div class="card-content">
+                    <pre class="code-block"><code class="font-code"><span class="syntax-comment">// Throwing built-in exceptions</span>
+<span class="syntax-keyword">if</span> (name == <span class="syntax-keyword">null</span>)
+{
+    <span class="syntax-keyword">throw</span> <span class="syntax-keyword">new</span> <span class="syntax-class">ArgumentNullException</span>(<span class="syntax-string">"name"</span>);
+}
+
+<span class="syntax-comment">// Throwing with message</span>
+<span class="syntax-keyword">if</span> (age &lt; <span class="syntax-number">0</span>)
+{
+    <span class="syntax-keyword">throw</span> <span class="syntax-keyword">new</span> <span class="syntax-class">ArgumentOutOfRangeException</span>(<span class="syntax-string">"age"</span>, <span class="syntax-string">"Age cannot be negative."</span>);
+}
+
+<span class="syntax-comment">// Creating a custom exception</span>
+<span class="syntax-keyword">public</span> <span class="syntax-keyword">class</span> <span class="syntax-class">InvalidOrderException</span> : <span class="syntax-class">Exception</span>
+{
+    <span class="syntax-keyword">public</span> <span class="syntax-class">InvalidOrderException</span>(<span class="syntax-class">string</span> message)
+        : <span class="syntax-keyword">base</span>(message) { }
+}
+
+<span class="syntax-comment">// Throwing custom exception</span>
+<span class="syntax-keyword">throw</span> <span class="syntax-keyword">new</span> <span class="syntax-class">InvalidOrderException</span>(<span class="syntax-string">"Order total must be &gt; 0."</span>);</code></pre>
+
+                    <table class="mt-2">
+                        <thead>
+                            <tr><th>Exception Type</th><th>When to Use</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code class="font-code">ArgumentException</code></td>
+                                <td>Argument value is invalid.</td>
+                            </tr>
+                            <tr>
+                                <td><code class="font-code">ArgumentNullException</code></td>
+                                <td>Argument is <code class="font-code">null</code> when it must not be.</td>
+                            </tr>
+                            <tr>
+                                <td><code class="font-code">ArgumentOutOfRangeException</code></td>
+                                <td>Argument is outside the allowed range.</td>
+                            </tr>
+                            <tr>
+                                <td><code class="font-code">InvalidOperationException</code></td>
+                                <td>Object is in an invalid state for the requested operation.</td>
+                            </tr>
+                            <tr>
+                                <td><code class="font-code">NullReferenceException</code></td>
+                                <td>Dereferencing a <code class="font-code">null</code> reference (usually not thrown manually).</td>
+                            </tr>
+                            <tr>
+                                <td><code class="font-code">FormatException</code></td>
+                                <td>Value is not in an expected format (e.g., parsing a number).</td>
+                            </tr>
+                            <tr>
+                                <td><code class="font-code">IOException</code></td>
+                                <td>General I/O failures (files, streams, etc.).</td>
+                            </tr>
+                            <tr>
+                                <td><code class="font-code">FileNotFoundException</code></td>
+                                <td>A required file does not exist.</td>
+                            </tr>
+                            <tr>
+                                <td><code class="font-code">NotImplementedException</code></td>
+                                <td>Member is not yet implemented.</td>
+                            </tr>
+                            <tr>
+                                <td><code class="font-code">NotSupportedException</code></td>
+                                <td>Operation is not supported in the current context.</td>
+                            </tr>
+                            <tr>
+                                <td><code class="font-code">TimeoutException</code></td>
+                                <td>Operation exceeded the allowed time.</td>
+                            </tr>
+                            <tr>
+                                <td><code class="font-code">Exception</code></td>
+                                <td>Base type for all exceptions; avoid throwing directly unless necessary.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </main>
     </div>
 
