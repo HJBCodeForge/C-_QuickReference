@@ -735,7 +735,19 @@ lengthOfString.<span class="syntax-method">Contains</span>(<span class="syntax-s
 }
 
 <span class="syntax-comment">// Throwing custom exception</span>
-<span class="syntax-keyword">throw</span> <span class="syntax-keyword">new</span> <span class="syntax-class">InvalidOrderException</span>(<span class="syntax-string">"Order total must be &gt; 0."</span>);</code></pre>
+<span class="syntax-keyword">throw</span> <span class="syntax-keyword">new</span> <span class="syntax-class">InvalidOrderException</span>(<span class="syntax-string">"Order total must be &gt; 0."</span>);
+
+<span class="syntax-comment">// Handling exceptions with try/catch</span>
+<span class="syntax-keyword">try</span>
+{
+    <span class="syntax-method">Process1</span>(userEntries);
+    <span class="syntax-class">Console</span>.<span class="syntax-method">WriteLine</span>(<span class="syntax-string">"'Process1' completed successfully."</span>);
+}
+<span class="syntax-keyword">catch</span> (<span class="syntax-class">FormatException</span> ex)
+{
+    <span class="syntax-class">Console</span>.<span class="syntax-method">WriteLine</span>(<span class="syntax-string">"'Process1' encountered an issue, process aborted."</span>);
+    <span class="syntax-class">Console</span>.<span class="syntax-method">WriteLine</span>(ex.<span class="syntax-method">Message</span>);
+}</code></pre>
 
                     <table class="mt-2">
                         <thead>
@@ -777,6 +789,10 @@ lengthOfString.<span class="syntax-method">Contains</span>(<span class="syntax-s
                             <tr>
                                 <td><code class="font-code">NotImplementedException</code></td>
                                 <td>Member is not yet implemented.</td>
+                            </tr>
+                            <tr>
+                                <td><code class="font-code">DivideByZeroException</code></td>
+                                <td>Division or modulo operation with a zero divisor.</td>
                             </tr>
                             <tr>
                                 <td><code class="font-code">NotSupportedException</code></td>
